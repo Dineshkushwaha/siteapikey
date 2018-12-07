@@ -12,10 +12,10 @@ function site_api_key_form_alter(&$form, FormStateInterface $form_state,
     // Add Site API Key only to system_site_information_settings form
     if ($form_id == 'system_site_information_settings') {
       $default_value =  "No API Key yet";
-		  $config = \Drupal::config('siteapikey.settings');
-		  $api_value = $config->get('siteapikey');
+      $config = \Drupal::config('siteapikey.settings');
+      $api_value = $config->get('siteapikey');
       if (isset($api_value) && !empty($api_value)) {
-  			$form['actions']['submit']['#value'] = t('Update Configuration');
+        $form['actions']['submit']['#value'] = t('Update Configuration');
       }
 
         $form['site_information']['api_key'] = array(
